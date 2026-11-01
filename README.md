@@ -1,68 +1,33 @@
-# Samsindeen Salako — Website v2
+# Samsindeen Salako — Static Vercel Website
 
-This is a fresh website design, not a WordPress theme clone. It uses the existing site's content flow while presenting it through a new editorial visual identity.
+This version is built with **HTML, CSS and JavaScript only**. It contains no PHP files, no PHP includes, and no PHP runtime requirement.
 
-## Folder structure
+## Deploy to Vercel
 
-```text
-samsindeen-website-v2/
-├── index.php
-├── about.php
-├── services.php
-├── projects.php
-├── insights.php
-├── article.php
-├── contact.php
-├── includes/
-│   ├── bootstrap.php
-│   ├── site-data.php
-│   ├── functions.php
-│   ├── header.php
-│   └── footer.php
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-└── assets/
-    └── images/
-```
+1. Extract this ZIP.
+2. Upload the contents of this folder to a GitHub repository (the `index.html` file must be at the repository root).
+3. In Vercel, choose **Add New → Project** and import that GitHub repository.
+4. Keep the Framework Preset as **Other**.
+5. Leave Build Command and Output Directory empty (or use `.` as the output directory).
+6. Click **Deploy**.
 
-## PHP include architecture
+## Local preview
 
-Every page loads `includes/bootstrap.php`, which loads the shared content and helper functions. Each page then includes `includes/header.php` and `includes/footer.php`.
+You can open `index.html` directly in a browser, or use VS Code Live Server for a better local preview.
 
-- `site-data.php`: navigation, service copy, ventures, articles and project captions.
-- `functions.php`: shared HTML rendering helpers and escaping.
-- `bootstrap.php`: shared setup for each page.
-- `header.php`: document head, site branding and navigation.
-- `footer.php`: shared footer and JavaScript include.
+## Project structure
 
-The shared includes are separate PHP files in the `includes/` directory and are included in this ZIP.
+- `index.html`, `about.html`, `services.html`, `projects.html`, `insights.html`, `contact.html`
+- `article-*.html` — individual static article pages
+- `assets/images/` — regular image files used by HTML `<img>` tags
+- `css/style.css` — website styling
+- `js/main.js` — mobile navigation
+- `js/contact.js` — opens the visitor's email app with their enquiry prepared
 
-## Run with XAMPP
+## Contact form note
 
-1. Extract `samsindeen-website-v2` into `C:\\xampp\\htdocs\\`.
-2. Start Apache in XAMPP.
-3. Open `http://localhost/samsindeen-website-v2/`.
-
-No database or Composer packages are required for this version.
-
-## Add the real WordPress images
-
-Copy the original image files into `assets/images/` and name them:
-
-- `portrait-hero.jpg`
-- `portrait-about.jpg`
-- `portrait-contact.jpg`
-- `project-01.jpg` through `project-06.jpg`
-- `coffee-01.jpg` through `coffee-06.jpg`
-
-Until then, CSS placeholders appear in the image areas.
-
-## Contact form
-
-The form validates name, email and message, then uses PHP `mail()`. Configure SMTP/PHPMailer or the hosting provider's mail service before production deployment. No SMTP credentials should be stored in this project.
-
+Because this is a static website, the contact form opens the visitor's default email application. It does not send email directly from Vercel. To receive submissions without relying on the visitor's email app, connect a hosted form service or a separate backend.
 
 ## Images
-All photos are stored as regular image files in `assets/images/` and referenced with standard HTML `<img src="assets/images/...">` tags. No PHP image-rendering helper is used. The included images were cropped from the reference screenshots supplied for this project; replace them with the original full-resolution photographs before publishing.
+
+All image references use normal paths such as `assets/images/portrait-hero.jpg`. Replace the supplied image files with the final approved, full-resolution photographs while keeping the filenames unchanged.
